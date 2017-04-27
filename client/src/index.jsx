@@ -15,17 +15,17 @@ class App extends React.Component {
 
   search (term) {
     console.log(`${term} was searched`);
-
     // When a user types a github username into the text field, use jQuery's ajax
     // method to send a POST request to /repos/import (you'll have to fix the bug
     // in the Search Component first).
-
       $.ajax({
         url: 'http://localhost:1128/repos/import',
         type: 'POST',
-        data: term,
+        data: JSON.stringify({"username": `${term}`}),
+        contentType: 'application/json',
         success : function(data) {
           console.log("Success!")
+          console.log(data)
         },
         error : function(request, error) {
           console.error("Request: " + JSON.stringify(request));
