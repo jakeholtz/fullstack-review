@@ -24,7 +24,7 @@ class App extends React.Component {
         data: JSON.stringify({"username": `${term}`}),
         contentType: 'application/json',
         success : function(data) {
-          console.log("Success!")
+          console.log("CLIENT-SERVER POST Success!")
           console.log(data)
         },
         error : function(request, error) {
